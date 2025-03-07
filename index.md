@@ -24,4 +24,4 @@ send me cryptocurrency by using any of the following addresses:
 ```
 47y5LAtYdpZ4GAE7CMx1soEHjUKzpVQFYM5Pv836FcsZd6k3TFcdvHMAHDpwZgnx4DdG2zkZkSewLgguU23FYJP7HacSVcx
 ```
-![](/public/content/monero.png)
+![Monero address](/public/content/monero.png)
