@@ -1,0 +1,18 @@
+Website
+=======
+
+Francesco Saccone's website content.
+
+This repository contains all the content avaiable at
+<https://francescosaccone.com>, as my website is fully static.
+
+Structure
+---------
+
+All Markdown files (.md) are converted to HTML (.html) using md4c (see
+<https://github.com/mity/md4c> for more information about the parser) and their
+content is put between the content of footer.html and the content of
+header.html.
+
+Every file in public/, along with robots.txt and favicon.ico, is purely
+statically hosted.
