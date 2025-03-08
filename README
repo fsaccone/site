@@ -9,10 +9,8 @@ This repository contains all the content avaiable at
 Usage
 -----
 
-All Markdown files (.md) are converted to HTML (.html) using md4c (see
-<https://github.com/mity/md4c> for more information about the parser) and their
-content is put between the content of footer.html and the content of
-header.html.
+Use the "generate-<output>.sh" scripts at root to generate the webpages.
 
-Every file in public/, along with robots.txt and favicon.ico, is purely
-statically hosted.
+Every file in public/ is statically hosted at path "/public".
+
+The favicon.ico and robots.txt are statically hosted at path "/" in HTTP.
