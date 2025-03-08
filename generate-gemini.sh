@@ -14,6 +14,8 @@ fi
 
 SOURCE="$(dirname "$0")"
 DESTINATION="$1"
+HEADER="$SOURCE/header.gmi"
+FOOTER="$SOURCE/footer.gmi"
 
 find "$SOURCE" -type f -name "*.md" | while IFS= read -r md_file; do
   relative_path="${md_file#$SOURCE/}"
@@ -21,7 +23,11 @@ find "$SOURCE" -type f -name "*.md" | while IFS= read -r md_file; do
 
   mkdir -p "$(dirname "$gemini_file")"
 
-  lowdown -t gemini "$md_file" > "$gemini_file"
+  {
+    cat "$HEADER"
+    lowdown -t gemini "$md_file"
+    cat "$FOOTER"
+  } > "$gemini_file"
 
   echo "Parsed: $md_file -> $gemini_file"
 done
