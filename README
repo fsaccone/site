@@ -13,4 +13,4 @@ Use the "generate-<output>.sh" scripts at root to generate the webpages.
 
 Every file in public/ is statically hosted at path "/public".
 
-The favicon.ico and robots.txt are statically hosted at path "/" in HTTP.
+The favicon.ico and robots.txt files are statically hosted at path "/" in HTTP.
