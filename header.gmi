@@ -1,5 +1,5 @@
 => / About
-=> /notes Notes
+=> /blog Blog
 
 ---
 
