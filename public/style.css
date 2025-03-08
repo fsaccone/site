@@ -55,10 +55,10 @@ a:hover {
   text-decoration: underline;
 }
 
-a.footnote-ref,
-a.footnote-ref:hover,
-a.footnote-back,
-a.footnote-back:hover {
+a[rel="footnote"],
+a[rel="footnote"]:hover,
+a[rev="footnote"],
+a[rev="footnote"]:hover {
   text-decoration: none;
 }
 
