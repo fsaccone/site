@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in cat dirname echo find mkdir rm read smu;  do
+for program in cat dirname echo find lowdown mkdir rm read;  do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -23,7 +23,7 @@ find "$SOURCE" -type f -name "*.md" | while IFS= read -r md_file; do
 
   mkdir -p "$(dirname "$html_file")"
 
-  smu -n "$md_file" > "$html_file.tmp"
+  lowdown -t html "$md_file" > "$html_file.tmp"
 
   {
     cat "$HEADER"
