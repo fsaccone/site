@@ -23,15 +23,11 @@ find "$SOURCE" -type f -name "*.md" | while IFS= read -r md_file; do
 
   mkdir -p "$(dirname "$html_file")"
 
-  lowdown -t html "$md_file" > "$html_file.tmp"
-
   {
     cat "$HEADER"
-    cat "$html_file.tmp"
+    lowdown -t html "$md_file"
     cat "$FOOTER"
   } > "$html_file"
-
-  rm "$html_file.tmp"
 
   echo "Parsed: $md_file -> $html_file"
 done
