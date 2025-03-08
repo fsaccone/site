@@ -9,12 +9,12 @@ body {
 }
 
 header {
-  border-bottom: solid 2px;
+  border-bottom: solid 1px;
   font-size: 1.3em;
 }
 
 footer {
-  border-top: solid 2px;
+  border-top: solid 1px;
   font-size: 0.9em;
   text-align: center;
   width: 100%;
