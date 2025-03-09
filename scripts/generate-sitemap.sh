@@ -27,7 +27,13 @@ mkdir -p "$DESTINATION"
 for md_file in $(find "$SOURCE" -type f -name "index.md"); do
   md_relative_file="${md_file#$SOURCE/}"
 
-  url="$BASE_URL/$(dirname $md_relative_file)"
+  if [ "$md_relative_file" = "index.md" ]; then
+    url_path=""
+  else
+    url_path="$(dirname $md_relative_file)/"
+  fi
+
+  url="$BASE_URL/$url_path"
 
   {
     echo -n "<url>"
