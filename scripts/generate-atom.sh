@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in date dirname echo find mkdir realpath sed; do
+for program in dirname echo find mkdir realpath sed; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -21,14 +21,11 @@ BASE_URL="$3"
 
 mkdir -p "$DESTINATION"
 
-BLOG_LAST_MODIFIED=$(date -ur "$BLOG_SOURCE" +"%Y-%m-%dT%H:%M:%SZ")
-
 {
   echo -n "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
   echo -n "<feed xmlns=\"http://www.w3.org/2005/Atom\">"
   echo -n "<title>${TITLE}</title>"
   echo -n "<link href=\"${BASE_URL}\" rel=\"self\"/>"
-  echo -n "<updated>$BLOG_LAST_MODIFIED</updated>"
   echo -n "<id>$BASE_URL/atom.xml</id>"
 } > "$ATOM_FILE"
 
@@ -44,14 +41,11 @@ in $(find "$BLOG_SOURCE" -mindepth 2 -maxdepth 2 -type f -name "index.md"); do
 
   # First capitalise the first letter, then replace hyphens with spaces.
   entry_title=$(echo "${entry_title_id^}" | sed -e 's/-/ /g')
-  
-  last_modified=$(date -ur "$md_file" +"%Y-%m-%dT%H:%M:%SZ")
 
   {
     echo -n "<entry>"
     echo -n "<title>$entry_title</title>"
     echo -n "<link href=\"$url\"/>"
-    echo -n "<updated>$last_modified</updated>"
     echo -n "</entry>"
   } >> "$ATOM_FILE"
 done

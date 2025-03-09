@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in date dirname echo find mkdir realpath; do
+for program in dirname echo find mkdir realpath; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -28,12 +28,10 @@ for md_file in $(find "$SOURCE" -type f -name "index.md"); do
   md_relative_file="${md_file#$SOURCE/}"
 
   url="$BASE_URL/$(dirname $md_relative_file)"
-  last_modified=$(date -ur "$md_file" +"%Y-%m-%dT%H:%M:%SZ")
 
   {
     echo -n "<url>"
     echo -n "<loc>$url</loc>"
-    echo -n "<lastmod>$last_modified</lastmod>"
     echo -n "</url>"
   } >> "$SITEMAP_FILE"
 done
