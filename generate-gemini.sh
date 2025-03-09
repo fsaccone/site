@@ -17,7 +17,7 @@ DESTINATION="$1"
 HEADER="$SOURCE/header.gmi"
 FOOTER="$SOURCE/footer.gmi"
 
-find "$SOURCE" -type f -name "*.md" | while IFS= read -r md_file; do
+for md_file in $(find "$SOURCE" -type f -name "*.md"); do
   relative_path="${md_file#$SOURCE/}"
   gemini_file="$DESTINATION/${relative_path%.md}.gmi"
 
