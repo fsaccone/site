@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in date dirname echo find mkdir; do
+for program in date dirname echo find mkdir realpath; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -12,7 +12,7 @@ if [ "$#" -ne 2 ]; then
   exit 1
 fi
 
-SOURCE="$(dirname $0 | dirname)"
+SOURCE="$(realpath $(dirname $0)/..)"
 DESTINATION="$1"
 SITEMAP_FILE="$DESTINATION/sitemap.xml"
 BASE_URL="$2"

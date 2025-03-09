@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in cat dirname echo find lowdown mkdir rm read;  do
+for program in cat dirname echo find lowdown mkdir rm read realpath;  do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -12,7 +12,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-SOURCE="$(dirname $0 | dirname)"
+SOURCE="$(realpath $(dirname $0)/..)"
 DESTINATION="$1"
 HEADER="$SOURCE/header.html"
 FOOTER="$SOURCE/footer.html"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in date dirname echo find mkdir sed; do
+for program in date dirname echo find mkdir realpath sed; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -12,7 +12,7 @@ if [ "$#" -ne 3 ]; then
   exit 1
 fi
 
-SOURCE="$(dirname $0 | dirname)"
+SOURCE="$(realpath $(dirname $0)/..)"
 BLOG_SOURCE="$SOURCE/blog"
 DESTINATION="$1"
 ATOM_FILE="$DESTINATION/atom.xml"
