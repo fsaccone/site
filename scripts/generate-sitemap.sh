@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in dirname echo find mkdir realpath; do
+for program in dirname echo find git mkdir realpath; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -35,9 +35,12 @@ for md_file in $(find "$SOURCE" -type f -name "index.md"); do
 
   url="$BASE_URL/$url_path"
 
+  date=$(git log -1 --pretty=%cI "$md_file")
+
   {
     echo -n "<url>"
     echo -n "<loc>$url</loc>"
+    echo -n "<lastmod>$date</lastmod>"
     echo -n "</url>"
   } >> "$SITEMAP_FILE"
 done
