@@ -35,7 +35,7 @@ for md_file in $(find "$SOURCE" -type f -name "index.md"); do
 
   url="$BASE_URL/$url_path"
 
-  date=$(git log -1 --pretty=%cI "$md_file")
+  date=$(cd "$SOURCE" && git log -1 --pretty=%cI "$md_file")
 
   {
     echo -n "<url>"

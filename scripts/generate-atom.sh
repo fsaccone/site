@@ -19,7 +19,7 @@ ATOM_FILE="$DESTINATION/atom.xml"
 TITLE="$2"
 BASE_URL="$3"
 
-SITE_DATE=$(git log -1 --pretty=%cI)
+SITE_DATE=$(cd "$SOURCE" && git log -1 --pretty=%cI)
 
 mkdir -p "$DESTINATION"
 
@@ -42,7 +42,7 @@ in $(find "$BLOG_SOURCE" -mindepth 2 -maxdepth 2 -type f -name "index.md"); do
 
   url="$BASE_URL/blog/$entry_title_id"
 
-  date=$(git log -1 --pretty=%cI "$md_file")
+  date=$(cd "$SOURCE" && git log -1 --pretty=%cI "$md_file")
 
   # First capitalise the first letter, then replace hyphens with spaces.
   entry_title=$(echo "${entry_title_id^}" | sed -e 's/-/ /g')
