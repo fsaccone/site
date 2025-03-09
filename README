@@ -11,15 +11,14 @@ Usage
 -----
 
 All the pages are written in Markdown. You need to parse them to make them
-avaiable when hosted with a protocol. I wrote all the scripts you need:
+avaiable when hosted with a protocol. I wrote all the scripts you need inside
+the scripts/ directory:
 
 - generate-html.sh: parse every Markdown page to HTML.
 
 - generate-gemini.sh: parse every Markdown page to Gemtext.
 
-- generate-html-sitemap.sh: Generate a sitemap with HTTP URLs.
-
-- generate-gemini-sitemap.sh: Generate a sitemap with Gemini URLs.
+- generate-sitemap.sh: Generate the sitemap.xml of the whole site.
 
 - generate-atom.sh: Generate the atom.xml of blog/ with HTTP URLs.
 
