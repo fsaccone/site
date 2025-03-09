@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in dirname echo find mkdir realpath sed; do
+for program in dirname echo find git mkdir realpath sed; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -19,6 +19,8 @@ ATOM_FILE="$DESTINATION/atom.xml"
 TITLE="$2"
 BASE_URL="$3"
 
+SITE_DATE=$(git log -1 --pretty=%cI)
+
 mkdir -p "$DESTINATION"
 
 {
@@ -26,6 +28,7 @@ mkdir -p "$DESTINATION"
   echo -n "<feed xmlns=\"http://www.w3.org/2005/Atom\">"
   echo -n "<title>${TITLE}</title>"
   echo -n "<link href=\"${BASE_URL}\" rel=\"self\"/>"
+  echo -n "<updated>$SITE_DATE</updated>"
   echo -n "<id>$BASE_URL/atom.xml</id>"
 } > "$ATOM_FILE"
 
@@ -39,6 +42,8 @@ in $(find "$BLOG_SOURCE" -mindepth 2 -maxdepth 2 -type f -name "index.md"); do
 
   url="$BASE_URL/blog/$entry_title_id"
 
+  date=$(git log -1 --pretty=%cI "$md_file")
+
   # First capitalise the first letter, then replace hyphens with spaces.
   entry_title=$(echo "${entry_title_id^}" | sed -e 's/-/ /g')
 
@@ -46,6 +51,7 @@ in $(find "$BLOG_SOURCE" -mindepth 2 -maxdepth 2 -type f -name "index.md"); do
     echo -n "<entry>"
     echo -n "<title>$entry_title</title>"
     echo -n "<link href=\"$url\"/>"
+    echo -n "<updated>$date</updated>"
     echo -n "</entry>"
   } >> "$ATOM_FILE"
 done
