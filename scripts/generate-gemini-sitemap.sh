@@ -12,7 +12,7 @@ if [ "$#" -ne 2 ]; then
   exit 1
 fi
 
-SOURCE="$(dirname "$0")"
+SOURCE="$(dirname "$0" | dirname)"
 DESTINATION="$1"
 SITEMAP_FILE="$DESTINATION/sitemap.xml"
 BASE_URL="$2"

@@ -12,7 +12,7 @@ if [ "$#" -ne 3 ]; then
   exit 1
 fi
 
-SOURCE="$(dirname $0)"
+SOURCE="$(dirname $0 | dirname)"
 BLOG_SOURCE="$SOURCE/blog"
 DESTINATION="$1"
 ATOM_FILE="$DESTINATION/atom.xml"

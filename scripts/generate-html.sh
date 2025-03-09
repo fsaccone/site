@@ -12,7 +12,7 @@ if [ "$#" -ne 1 ]; then
   exit 1
 fi
 
-SOURCE="$(dirname "$0")"
+SOURCE="$(dirname "$0" | dirname)"
 DESTINATION="$1"
 HEADER="$SOURCE/header.html"
 FOOTER="$SOURCE/footer.html"
