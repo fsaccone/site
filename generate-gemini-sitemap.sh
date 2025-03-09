@@ -29,7 +29,7 @@ for md_file in $(find "$SOURCE" -type f -name "*.md"); do
   gemini_relative_path="${relative_path%.md}.gmi"
 
   url="$BASE_URL/$gemini_relative_path"
-  last_modified=$(date -r "$md_file" +"%Y-%m-%d")
+  last_modified=$(date -ur "$md_file" +"%Y-%m-%dT%H:%M:%SZ")
 
   {
     echo -n "<url>"
