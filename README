@@ -10,8 +10,21 @@ This repository contains all the content avaiable in my website, at
 Usage
 -----
 
-Use the "generate-<output>.sh" scripts at root to generate the webpages.
+All the pages are written in Markdown. You need to parse them to make them
+avaiable when hosted with a protocol. I wrote all the scripts you need:
 
-Every file in public/ is statically hosted at path "/public".
+- generate-html.sh: parse every Markdown page to HTML.
 
-The favicon.ico and robots.txt files are statically hosted at path "/" in HTTP.
+- generate-gemini.sh: parse every Markdown page to Gemtext.
+
+- generate-html-sitemap.sh: Generate a sitemap with HTTP URLs.
+
+- generate-gemini-sitemap.sh: Generate a sitemap with Gemini URLs.
+
+- generate-atom.sh: Generate the atom.xml of blog/ with HTTP URLs.
+
+The public/ directory and the robots.txt file should be statically hosted in
+every protocol.
+
+The favicon.ico file is only needed for HTTP, and can be ignored when hosting
+any other protocol.
