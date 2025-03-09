@@ -24,11 +24,10 @@ mkdir -p "$DESTINATION"
   echo -n '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap-image/1.1">'
 } > "$SITEMAP_FILE"
 
-for md_file in $(find "$SOURCE" -type f -name "*.md"); do
-  relative_path="${md_file#$SOURCE/}"
-  gemini_relative_path="${relative_path%.md}.gmi"
+for md_file in $(find "$SOURCE" -type f -name "index.md"); do
+  md_relative_file="${md_file#$SOURCE/}"
 
-  url="$BASE_URL/$gemini_relative_path"
+  url="$BASE_URL/$(dirname $md_relative_file)"
   last_modified=$(date -ur "$md_file" +"%Y-%m-%dT%H:%M:%SZ")
 
   {
