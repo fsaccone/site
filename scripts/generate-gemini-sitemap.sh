@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in date echo find mkdir; do
+for program in date dirname echo find mkdir; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
