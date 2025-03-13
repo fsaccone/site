@@ -123,7 +123,7 @@ table {
 pre {
   overflow: auto;
   padding: 1em;
-  white-space: pre-wrap;
+  white-space: pre;
 }
 
 pre code {
