@@ -14,9 +14,9 @@ All the pages are written in Markdown. You need to parse them to make them
 avaiable when hosted with a protocol. I wrote all the scripts you need inside
 the scripts/ directory:
 
-- generate-html.sh: parse every Markdown page to HTML.
+- generate-html.sh: parse every Markdown page to HTML using lowdown.
 
-- generate-gemini.sh: parse every Markdown page to Gemtext.
+- generate-gemini.sh: parse every Markdown page to Gemtext using lowdown.
 
 - generate-sitemap.sh: Generate the sitemap.xml of the whole site.
 
