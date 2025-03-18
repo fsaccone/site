@@ -94,7 +94,15 @@ blockquote {
 
 hr {
   border: solid 0.1em;
-  margin: 1em 0;
+  border-style: dashed;
+  margin: 2em 30%;
+}
+
+blockquote {
+  border-left: solid 0.15em;
+  font-style: italic;
+  margin-left: 0.5em;
+  padding: 0.5em 1em;
 }
 
 em,
@@ -108,14 +116,6 @@ figcaption {
 
 strong {
   font-weight: bold;
-}
-
-blockquote {
-  border-left: solid 0.15em;
-  border-left-color: #acacac;
-  font-style: italic;
-  margin-left: 0.5em;
-  padding: 0.5em 1em;
 }
 
 code,
