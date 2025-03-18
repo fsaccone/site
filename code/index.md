@@ -15,7 +15,7 @@ ranging from my laptop to my server, and is currently the most actively
 maintained project in my portfolio.
 
 [^1]: For more information about Nix and the NixOS ecosystem, visit
-      https://nixos.org.
+  [NixOS](https://nixos.org).
 
 Site
 ----
