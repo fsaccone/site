@@ -87,6 +87,11 @@ img {
   max-width: 100%;
 }
 
+hr,
+blockquote {
+  border-color: #acacac;
+}
+
 hr {
   border: solid 0.1em;
   margin: 1em 0;
@@ -167,8 +172,9 @@ sup {
     color: #e4e4e4;
   }
 
+  hr,
   blockquote {
-    border-left-color: #535353;
+    border-color: #535353;
   }
 
   code,
