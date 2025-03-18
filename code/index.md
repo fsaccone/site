@@ -7,7 +7,7 @@ self-hosted.
 Flake
 -----
 
-```sh
+```
 git clone git://francescosaccone.com/flake
 ```
 
@@ -22,7 +22,7 @@ maintained project in my portfolio.
 Site
 ----
 
-```sh
+```
 git clone git://francescosaccone.com/site
 ```
 
