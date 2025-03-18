@@ -87,19 +87,16 @@ img {
   max-width: 100%;
 }
 
-hr,
-blockquote {
-  border-color: #acacac;
-}
-
 hr {
   border: solid 0.1em;
+  border-color: #acacac;
   border-style: dashed;
   margin: 2em 30%;
 }
 
 blockquote {
   border-left: solid 0.15em;
+  border-left-color: #acacac;
   font-style: italic;
   margin-left: 0.5em;
   padding: 0.5em 1em;
@@ -172,9 +169,12 @@ sup {
     color: #e4e4e4;
   }
 
-  hr,
-  blockquote {
+  hr {
     border-color: #535353;
+  }
+
+  blockquote {
+    border-left-color: #535353;
   }
 
   code,
