@@ -75,6 +75,14 @@ hr {
   border-color: #acacac;
 }
 
+#branches tbody tr:hover td,
+#files tbody tr:hover td,
+#index tbody tr:hover td,
+#log tbody tr:hover td,
+#tags tbody tr:hover td {
+  background-color: #e7e7e7;
+}
+
 pre a.h {
   color: #0000aa;
 }
@@ -109,6 +117,14 @@ pre a.d:hover {
 
   hr {
     border-color: #535353;
+  }
+
+  #branches tbody tr:hover td,
+  #files tbody tr:hover td,
+  #index tbody tr:hover td,
+  #log tbody tr:hover td,
+  #tags tbody tr:hover td {
+    background-color: #181818;
   }
 
   pre a.h {
