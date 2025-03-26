@@ -26,6 +26,14 @@ a.line {
   text-decoration: none;
 }
 
+#branches a,
+#files a,
+#log a,
+#tags a {
+  font-style: italic;
+  text-decoration: none;
+}
+
 h1,
 h2,
 h3,
