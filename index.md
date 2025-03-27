@@ -1,7 +1,8 @@
 Francesco Saccone
 =================
 
-I am a musician and a cybersecurity enthusiast.
+I am a musician and a cybersecurity enthusiast. You can explore my Git
+repositories at https://git.francescosaccone.com.
 
 Contact
 -------
