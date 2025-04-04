@@ -30,7 +30,10 @@ a.line {
 #files a,
 #log a,
 #tags a {
+  display: list-item;
   font-style: italic;
+  list-style-type: disclosure-closed;
+  margin-left: 1em;
   text-decoration: none;
 }
 
