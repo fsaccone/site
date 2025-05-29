@@ -77,8 +77,12 @@ td.num {
   text-align: right;
 }
 
-.desc {
+.desc, .url {
   color: #acacac;
+}
+
+.url {
+  font-style: italic;
 }
 
 hr {
