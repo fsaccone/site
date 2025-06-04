@@ -3,27 +3,23 @@ Site
 
 Francesco Saccone's site content.
 
-This repository contains all the content avaiable in my website, at
-<https://francescosaccone.com>, and in my Gemini capsule, at
-<gemini://francescosaccone.com>.
+This repository contains all the content avaiable in my website at
+<https://francescosaccone.com>.
 
 Usage
 -----
 
-All the pages are written in Markdown. You need to parse them to make them
-avaiable when hosted with a protocol. I wrote all the scripts you need inside
-the scripts/ directory:
+All the pages are written in Markdown. Use the scripts inside the scripts/
+directory to generate functional content:
 
 - generate-html.sh: parse every Markdown page to HTML using lowdown.
-
-- generate-gemini.sh: parse every Markdown page to Gemtext using lowdown.
 
 - generate-sitemap.sh: Generate the sitemap.xml of the whole site.
 
 - generate-atom.sh: Generate the atom.xml of blog/ with HTTP URLs.
 
-The public/ directory and the robots.txt file should be statically hosted in
-every protocol.
+The public/ directory should be statically hosted at /public.
 
-The favicon.ico file is only needed for HTTP, and can be ignored when hosting
-any other protocol.
+The robots.txt file should be available at /robots.txt.
+
+The favicon.ico file should be available through HTTP at /favicon.ico.
