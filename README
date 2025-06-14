@@ -20,6 +20,4 @@ directory to generate functional content:
 
 The public/ directory should be statically hosted at /public.
 
-The robots.txt file should be available at /robots.txt.
-
 The favicon.ico file should be available through HTTP at /favicon.ico.
