@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in dirname echo find mkdir realpath; do
+for program in dirname echo find grep mkdir realpath; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
@@ -16,6 +16,7 @@ SOURCE="$(realpath $(dirname $0)/..)"
 DESTINATION="$1"
 SITEMAP_FILE="$DESTINATION/sitemap.xml"
 BASE_URL="$2"
+IGNORED_FILES="$SOURCE/404.md $SOURCE/5xx.md"
 
 mkdir -p "$DESTINATION"
 
@@ -25,6 +26,10 @@ mkdir -p "$DESTINATION"
 } > "$SITEMAP_FILE"
 
 for md_file in $(find "$SOURCE" -type f -name "index.md"); do
+  if echo "$IGNORED_FILES" | grep -qw "$md_file"; then
+    continue
+  fi
+
   md_relative_file="${md_file#$SOURCE/}"
 
   if [ "$md_relative_file" = "index.md" ]; then
