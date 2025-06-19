@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for program in cat dirname echo lowdown realpath;  do
+for program in cat dirname echo lowdown realpath; do
   if ! command -v "$program" > /dev/null 2>&1; then
     echo "Error: Required program '$program' is not installed."
     exit 1
