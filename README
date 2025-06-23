@@ -14,6 +14,8 @@ directory to generate functional content:
 
 - generate-html.sh: parse every Markdown page to HTML using lowdown.
 
+- generate-gemini.sh: parse every Markdown page to Gemtext using lowdown.
+
 - generate-sitemap.sh: Generate the sitemap.xml of the whole site.
 
 - generate-atom.sh: Generate the atom.xml of blog/ with HTTP URLs.
