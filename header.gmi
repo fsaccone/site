@@ -1,6 +1,5 @@
-=> / [About]
-
-=> /blog [Blog]
+=> / About
+=> /blog Blog
 
 ---
 
