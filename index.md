@@ -17,7 +17,7 @@ send me cryptocurrency by using any of the following addresses:
 
 ### Monero
 
-![QR Code](/public/content/monero.png)
+![Monero address](/public/content/monero.png)
 
 ```
 881kALdisb3eqtQcU1RV2Mann5tmJdrTFQVBs25sppEZPkzsGKVrRqrZYS8Co4Nu6cYoU7ShrtXM9EYj2Tiat89e5sVH9pv
