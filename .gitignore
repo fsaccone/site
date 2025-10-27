@@ -1,0 +1,4 @@
+*.html
+*.xml
+!footer.html
+!header.html

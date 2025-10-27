@@ -4,18 +4,3 @@ Francesco Saccone's site content.
 
 This repository contains all the content avaiable in my website at
 <https://francescosaccone.com>.
-
-## Usage
-
-All the pages are written in Markdown. Use the scripts inside the scripts/
-directory to generate functional content:
-
-- generate-html.sh: parse every Markdown page to HTML using lowdown.
-
-- generate-sitemap.sh: Generate the sitemap.xml of the whole site.
-
-- generate-atom.sh: Generate the atom.xml of blog/ with HTTP URLs.
-
-The public/ directory should be statically hosted at /public.
-
-The favicon.ico file should be available through HTTP at /favicon.ico.
