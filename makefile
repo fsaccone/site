@@ -79,7 +79,12 @@ $(SITEMAP):
 		else \
 			path=$$p; \
 		fi; \
-		printf "<url><loc>$(BASEURL)/$$path</loc></url>" >> $@; \
+		printf '<url>' >> $@; \
+		printf "<loc>$(BASEURL)/$$path</loc>" >> $@; \
+		lastmod=$$(stat -c '%Y' "$$p"); \
+		lastmod=$$(date -u -d @"$$lastmod" +"%Y-%m-%dT%H:%M:%S%:z"); \
+		printf "<lastmod>$$lastmod</lastmod>" >> $@; \
+		printf '</url>' >> $@; \
 	done
 
 	printf '</urlset>' >> $@
