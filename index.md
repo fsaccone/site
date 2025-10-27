@@ -1,8 +1,6 @@
-Francesco Saccone
-=================
+# Francesco Saccone
 
-Contact
--------
+## Contact
 
 You can contact me through email at
 [francesco@francescosaccone.com](mailto:francesco@francescosaccone.com). I sign

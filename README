@@ -1,5 +1,4 @@
-Site
-====
+# Site
 
 Francesco Saccone's site content.
 
@@ -7,8 +6,7 @@ This repository contains all the content avaiable in my website at
 <https://francescosaccone.com> and in my Gemini capsule at
 <gemini://francescosaccone.com>.
 
-Usage
------
+## Usage
 
 All the pages are written in Markdown. Use the scripts inside the scripts/
 directory to generate functional content:
