@@ -3,8 +3,7 @@
 Francesco Saccone's site content.
 
 This repository contains all the content avaiable in my website at
-<https://francescosaccone.com> and in my Gemini capsule at
-<gemini://francescosaccone.com>.
+<https://francescosaccone.com>.
 
 ## Usage
 
@@ -12,8 +11,6 @@ All the pages are written in Markdown. Use the scripts inside the scripts/
 directory to generate functional content:
 
 - generate-html.sh: parse every Markdown page to HTML using lowdown.
-
-- generate-gemini.sh: parse every Markdown page to Gemtext using lowdown.
 
 - generate-sitemap.sh: Generate the sitemap.xml of the whole site.
 
