@@ -52,7 +52,7 @@ $(ATOM):
 		else \
 			path=$$p; \
 		fi; \
-		printf '<entry><title>' >> $@; \
+		printf '<entry>' >> $@; \
 		printf '<title>' >> $@; \
 		title="$$path"; \
 		title="$${title#$(FEEDDIR)/}"; \
