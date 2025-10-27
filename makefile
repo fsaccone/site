@@ -46,7 +46,7 @@ $(ATOM):
 		if [ "$${p#$(FEEDDIR)/}" = "$$p" ]; then \
 			continue; \
 		elif [ "$$p" = 'index.html' ]; then \
-			path=''; \
+			continue; \
 		elif [ "$$(echo $$p | tail -c 12)" = '/index.html' ]; then \
 			path="$$(dirname $$p)/"; \
 		else \
