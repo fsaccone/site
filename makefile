@@ -45,7 +45,7 @@ $(ATOM):
 	for p in $(PAGES); do \
 		if [ "$${p#$(FEEDDIR)/}" = "$$p" ]; then \
 			continue; \
-		elif [ "$$p" = 'index.html' ]; then \
+		elif [ "$$p" = '$(FEEDDIR)/index.html' ]; then \
 			continue; \
 		elif [ "$$(echo $$p | tail -c 12)" = '/index.html' ]; then \
 			path="$$(dirname $$p)/"; \
