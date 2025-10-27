@@ -6,7 +6,7 @@ PAGES = index.html \
 PAGE404 = 404.html
 PAGE5XX = 5xx.html
 
-ATOM    = atom.xml
+ATOM    = $(FEEDDIR)/atom.xml
 SITEMAP = sitemap.xml
 
 HEADER = header.html
