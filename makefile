@@ -61,6 +61,15 @@ $(ATOM):
 		printf "$$title" >> $@; \
 		printf '</title>' >> $@; \
 		printf "<link href=\"$(BASEURL)/$$path\"/>" >> $@; \
+		created=$$(git log -1 --format='%at' --diff-filter=A \
+		           -- "$${p%.html}.md"); \
+		created=$$(date -u -d @"$$created" \
+		           +"%a, %d %b %Y %H:%M:%S +0000"); \
+		printf "<pubDate>$$created</pubDate>" >> $@; \
+		lastmod=$$(git log -1 --format='%at' -- "$${p%.html}.md"); \
+		lastmod=$$(date -u -d @"$$lastmod" \
+		           +"%a, %d %b %Y %H:%M:%S +0000"); \
+		printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
 		printf '</entry>' >> $@; \
 	done
 
