@@ -36,11 +36,14 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	cat $(FOOTER) >> $@
 
 $(ATOM):
-	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
-	printf '<feed xmlns="https://www.w3.org/2005/Atom">' >> $@
+	printf '<?xml version="1.0"?>' > $@
+	printf '<rss version="2.0"' >> $@
+	printf ' xmlns:atom="http://www.w3.org/2005/Atom">' >> $@
+	printf '<channel>' >> $@
+
 	printf '<title>$(TITLE)</title>' >> $@
-	printf '<link href="$(BASEURL)/$(FEEDDIR)/" rel="self"/>' >> $@
-	printf '<id>$(BASEURL)/$@</id>' >> $@
+	printf '<link>$(BASEURL)/$(FEEDDIR)/</link>' >> $@
+	printf '<description>$(TITLE)</description>' >> $@
 
 	for p in $(PAGES); do \
 		if [ "$${p#$(FEEDDIR)/}" = "$$p" ]; then \
@@ -72,7 +75,8 @@ $(ATOM):
 		printf '</entry>' >> $@; \
 	done
 
-	printf '</feed>' >> $@
+	printf '</channel>' >> $@
+	printf '</rss>' >> $@
 
 $(SITEMAP):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
