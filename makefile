@@ -73,7 +73,7 @@ $(RSS):
 		title=$$(head -n 1 "$${p%.html}.md" | sed 's/^# //'); \
 		printf "$$title" >> $@; \
 		printf '</title>' >> $@; \
-		printf "<link>$(BASEURL)</link>" >> $@; \
+		printf "<link>$(BASEURL)/$$path</link>" >> $@; \
 		created=$$(git log -1 --format='%at' --diff-filter=A \
 		           -- "$${p%.html}.md"); \
 		created=$$(date -u -d @"$$created" \
