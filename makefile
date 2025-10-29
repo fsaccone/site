@@ -39,7 +39,7 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	cat $(FOOTER) >> $@
 
 $(RSS):
-	printf '<?xml version="1.0"?>' > $@
+	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
 	printf '<rss version="2.0"' >> $@
 	printf ' xmlns:atom="http://www.w3.org/2005/Atom">' >> $@
 	printf '<channel>' >> $@
