@@ -6,27 +6,30 @@ PAGES = index.html \
 PAGE404 = 404.html
 PAGE5XX = 5xx.html
 
-ATOM    = $(FEEDDIR)/atom.xml
-SITEMAP = sitemap.xml
+RSSTITLE       = Francesco Saccone
+RSSDESCRIPTION = Francesco Saccone's blog.
+RSSDIR         = blog
+RSS            = $(RSSDIR)/atom.xml
+SITEMAP        = sitemap.xml
 
 HEADER = header.html
 FOOTER = footer.html
 
 .PHONY: all clean install uninstall
 
-all: $(PAGES) $(PAGE404) $(PAGE5XX) $(ATOM) $(SITEMAP)
+all: $(PAGES) $(PAGE404) $(PAGE5XX) $(RSS) $(SITEMAP)
 
 clean:
-	rm -f $(PAGES) $(PAGE404) $(PAGE5XX) $(ATOM) $(SITEMAP)
+	rm -f $(PAGES) $(PAGE404) $(PAGE5XX) $(RSS) $(SITEMAP)
 
-install: $(PAGES) $(ATOM) $(SITEMAP)
-	for f in $(ATOM) $(SITEMAP) $(PAGES) favicon.ico public; do \
+install: $(PAGES) $(RSS) $(SITEMAP)
+	for f in $(RSS) $(SITEMAP) $(PAGES) favicon.ico public; do \
 		mkdir -p $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 		cp -rf $$f $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 	done
 
 uninstall:
-	for f in $(ATOM) $(SITEMAP) $(PAGES) favicon.ico public; do \
+	for f in $(RSS) $(SITEMAP) $(PAGES) favicon.ico public; do \
 		rm -rf $(DESTDIR)$(PREFIX)/$$f; \
 	done
 
@@ -35,20 +38,20 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	$(LOWDOWN) -t html $(@:.html=.md) >> $@
 	cat $(FOOTER) >> $@
 
-$(ATOM):
+$(RSS):
 	printf '<?xml version="1.0"?>' > $@
 	printf '<rss version="2.0"' >> $@
 	printf ' xmlns:atom="http://www.w3.org/2005/Atom">' >> $@
 	printf '<channel>' >> $@
 
-	printf '<title>$(TITLE)</title>' >> $@
-	printf '<link>$(BASEURL)/$(FEEDDIR)/</link>' >> $@
-	printf '<description>$(TITLE)</description>' >> $@
+	printf '<title>$(RSSTITLE)</title>' >> $@
+	printf '<link>$(BASEURL)/$(RSSDIR)/</link>' >> $@
+	printf "<description>$(RSSDESCRIPTION)</description>" >> $@
 
 	for p in $(PAGES); do \
-		if [ "$${p#$(FEEDDIR)/}" = "$$p" ]; then \
+		if [ "$${p#$(RSSDIR)/}" = "$$p" ]; then \
 			continue; \
-		elif [ "$$p" = '$(FEEDDIR)/index.html' ]; then \
+		elif [ "$$p" = '$(RSSDIR)/index.html' ]; then \
 			continue; \
 		elif [ "$$(echo $$p | tail -c 12)" = '/index.html' ]; then \
 			path="$$(dirname $$p)/"; \
