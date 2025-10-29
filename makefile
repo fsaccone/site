@@ -53,7 +53,12 @@ $(RSS):
 	           +"%a, %d %b %Y %H:%M:%S +0000"); \
 	printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
 
-	for p in $(PAGES); do \
+	pages=$$(for f in $(PAGES); do git log \
+	                                   -1 \
+	                                   --format="%at $$f" \
+	                                   -- "$${f%.html}.md"; done); \
+	pages=$$(echo "$$pages" | sort -n | cut -d ' ' -f 2); \
+	for p in $$pages; do \
 		if [ "$${p#$(RSSDIR)/}" = "$$p" ]; then \
 			continue; \
 		elif [ "$$p" = '$(RSSDIR)/index.html' ]; then \
