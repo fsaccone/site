@@ -1,6 +1,6 @@
 #!/bin/sh
 
-for f in $(find . -type f -name '*.md'); do
+for f in $(find . -type f -name '*.md' ! -name '404.md' ! -name '5xx.md'); do
 	{
 		git log -1 --format='%at' -- "$f"
 		git log -1 --format='%at' --diff-filter=A -- "$f"
