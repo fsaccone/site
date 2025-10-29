@@ -70,7 +70,7 @@ $(RSS):
 		fi; \
 		printf '<entry>' >> $@; \
 		printf '<title>' >> $@; \
-		title=$$(head -n 1 "$$p" | sed 's/^# //'); \
+		title=$$(head -n 1 "$${p%.html}.md" | sed 's/^# //'); \
 		printf "$$title" >> $@; \
 		printf '</title>' >> $@; \
 		printf "<link>$(BASEURL)</link>" >> $@; \
@@ -83,7 +83,7 @@ $(RSS):
 		lastmod=$$(date -u -d @"$$lastmod" \
 		           +"%a, %d %b %Y %H:%M:%S +0000"); \
 		printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
-		content=$$(tail -n +2 "$$p" | $(LOWDOWN) -t html); \
+		content=$$(tail -n +2 "$${p%.html}.md" | $(LOWDOWN) -t html); \
 		printf "<description>$$content</description>" >> $@; \
 		printf '</entry>' >> $@; \
 	done
