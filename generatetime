@@ -6,6 +6,6 @@ if [ $# -ne 1 ]; then
 fi
 
 {
-	stat -c '%W' "$1"
-	stat -c '%W' "$1"
+	git log -1 --format='%at' -- "$1"
+	git log -1 --format='%at' --diff-filter=A -- "$1"
 } > "$1.time"
