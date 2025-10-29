@@ -1,5 +1,4 @@
 *.html
-*.time
 *.xml
 !footer.html
 !header.html
