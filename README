@@ -13,5 +13,6 @@ The .md.time files are generated through the generatetime script: the first
 line contains the timestamp of the creation of the respective .md file and the
 second line contains the timestamp of the last modification of it. The
 respective .md.time file of a .md file has to be regenerated every time the
-.md file is modified, and this has to happen right before committing. The only
-.md files that are excluded from this process are 404.md and 5xx.md.
+.md file is modified, and this has to be part of an extra commit, right after
+the one which modified the file. The only .md files that are excluded from this
+process are 404.md and 5xx.md.
