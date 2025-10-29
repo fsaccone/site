@@ -81,7 +81,7 @@ $(SITEMAP):
 		fi; \
 		printf '<url>' >> $@; \
 		printf "<loc>$(BASEURL)/$$path</loc>" >> $@; \
-		lastmod=$$(stat -c '%Y' "$$p"); \
+		lastmod=$$(git log -1 --format='%at' -- "$${p%.html}.md"); \
 		lastmod=$$(date -u -d @"$$lastmod" +"%Y-%m-%dT%H:%M:%S%:z"); \
 		printf "<lastmod>$$lastmod</lastmod>" >> $@; \
 		printf '</url>' >> $@; \
