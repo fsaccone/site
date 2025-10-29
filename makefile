@@ -47,6 +47,10 @@ $(RSS):
 	printf '<title>$(RSSTITLE)</title>' >> $@
 	printf '<link>$(BASEURL)/$(RSSDIR)/</link>' >> $@
 	printf "<description>$(RSSDESCRIPTION)</description>" >> $@
+	lastmod=$$(git log -1 --format='%at' -- $(RSSDIR)); \
+	lastmod=$$(date -u -d @"$$lastmod" \
+	           +"%a, %d %b %Y %H:%M:%S +0000"); \
+	printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
 
 	for p in $(PAGES); do \
 		if [ "$${p#$(RSSDIR)/}" = "$$p" ]; then \
