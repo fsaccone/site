@@ -4,3 +4,11 @@ Francesco Saccone's site content.
 
 This repository contains all the content avaiable in my website at
 <https://francescosaccone.com>.
+
+## Structure
+
+All .md files represent a page.
+
+The .time files are generated through the generatetime script: the first line
+contains the timestamp of the creation of the respective file and the second
+line contains the timestamp of the last modification of it.
