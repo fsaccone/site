@@ -54,10 +54,7 @@ $(ATOM):
 		fi; \
 		printf '<entry>' >> $@; \
 		printf '<title>' >> $@; \
-		title="$$path"; \
-		title="$${title#$(FEEDDIR)/}"; \
-		title="$${title%/}"; \
-		title=$$(printf "$$title" | sed 's/-/ /g'); \
+		title=$$(head -n 1 "$$p" | sed 's/^# //'); \
 		printf "$$title" >> $@; \
 		printf '</title>' >> $@; \
 		printf "<link href=\"$(BASEURL)/$$path\"/>" >> $@; \
