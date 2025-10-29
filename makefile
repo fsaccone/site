@@ -67,6 +67,8 @@ $(ATOM):
 		lastmod=$$(date -u -d @"$$lastmod" \
 		           +"%a, %d %b %Y %H:%M:%S +0000"); \
 		printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
+		content=$$(tail -n +2 "$$p" | $(LOWDOWN) -t html); \
+		printf "<description>$$content</description>" >> $@; \
 		printf '</entry>' >> $@; \
 	done
 
