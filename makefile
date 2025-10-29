@@ -53,6 +53,8 @@ $(RSS):
 	                               $$(tail -n +2 "$${f%.html}.md.time") \
 	                               "$$f"; done); \
 	lastbuild=$$(echo $$pages | head -n 1 | cut -d ' ' -f 1); \
+	lastbuild=$$(date -u -d @"$$lastbuild" \
+	             +"%a, %d %b %Y %H:%M:%S +0000"); \
 	printf "<lastBuildDate>$$lastbuild</lastBuildDate>" >> $@; \
 	pages=$$(echo "$$pages" | sort -n | cut -d ' ' -f 2); \
 	for p in $$pages; do \
