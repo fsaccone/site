@@ -48,15 +48,12 @@ $(RSS):
 	printf '<link>$(BASEURL)/$(RSSDIR)/</link>' >> $@
 	printf "<description>$(RSSDESCRIPTION)</description>" >> $@
 	printf "<language>en-us</language>" >> $@; \
-	lastmod=$$(git log -1 --format='%at' -- $(RSSDIR)); \
-	lastmod=$$(date -u -d @"$$lastmod" \
-	           +"%a, %d %b %Y %H:%M:%S +0000"); \
-	printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
 
-	pages=$$(for f in $(PAGES); do git log \
-	                                   -1 \
-	                                   --format="%at $$f" \
-	                                   -- "$${f%.html}.md"; done); \
+	pages=$$(for f in $(PAGES); do echo \
+	                               $$(tail -n +2 "$${f%.html}.md.time") \
+	                               "$$f"; done); \
+	lastbuild=$$(echo $$pages | head -n 1 | cut -d ' ' -f 1); \
+	printf "<lastBuildDate>$$lastbuild</lastBuildDate>" >> $@; \
 	pages=$$(echo "$$pages" | sort -n | cut -d ' ' -f 2); \
 	for p in $$pages; do \
 		if [ "$${p#$(RSSDIR)/}" = "$$p" ]; then \
@@ -74,12 +71,11 @@ $(RSS):
 		printf "$$title" >> $@; \
 		printf '</title>' >> $@; \
 		printf "<link>$(BASEURL)/$$path</link>" >> $@; \
-		created=$$(git log -1 --format='%at' --diff-filter=A \
-		           -- "$${p%.html}.md"); \
+		created=$$(head -n 1 "$${p%.html}.md.time"); \
 		created=$$(date -u -d @"$$created" \
 		           +"%a, %d %b %Y %H:%M:%S +0000"); \
 		printf "<pubDate>$$created</pubDate>" >> $@; \
-		lastmod=$$(git log -1 --format='%at' -- "$${p%.html}.md"); \
+		lastmod=$$(tail -n +2 "$${p%.html}.md.time"); \
 		lastmod=$$(date -u -d @"$$lastmod" \
 		           +"%a, %d %b %Y %H:%M:%S +0000"); \
 		printf "<lastBuildDate>$$lastmod</lastBuildDate>" >> $@; \
@@ -105,7 +101,7 @@ $(SITEMAP):
 		fi; \
 		printf '<url>' >> $@; \
 		printf "<loc>$(BASEURL)/$$path</loc>" >> $@; \
-		lastmod=$$(git log -1 --format='%at' -- "$${p%.html}.md"); \
+		lastmod=$$(tail -n +2 "$${p%.html}.md.time"); \
 		lastmod=$$(date -u -d @"$$lastmod" +"%Y-%m-%dT%H:%M:%S%:z"); \
 		printf "<lastmod>$$lastmod</lastmod>" >> $@; \
 		printf '</url>' >> $@; \
