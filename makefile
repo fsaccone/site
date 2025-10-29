@@ -88,8 +88,7 @@ $(RSS):
 
 $(SITEMAP):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
-	printf '<urlset xmlns="https//www.sitemaps.org/schemas' >> $@
-	printf '/sitemap-image/1.1">' >> $@
+	printf '<urlset xmlns="http://www.sitemaps.org/schemas/0.9>' >> $@
 
 	for p in $(PAGES); do \
 		if [ "$$p" = 'index.html' ]; then \
