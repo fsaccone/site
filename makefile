@@ -9,7 +9,7 @@ PAGE5XX = 5xx.html
 RSSTITLE       = Francesco Saccone
 RSSDESCRIPTION = Francesco Saccone's blog.
 RSSDIR         = blog
-RSS            = $(RSSDIR)/atom.xml
+RSS            = $(RSSDIR)/rss.xml
 SITEMAP        = sitemap.xml
 
 HEADER = header.html
