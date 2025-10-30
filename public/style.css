@@ -1,65 +1,65 @@
 body {
-  background-color: #eeeeee;
-  color: #1b1b1b;
-  font-family: sans-serif;
-  font-size: 1rem;
-  line-height: 1.6;
-  margin: 0;
-  padding: 0 24%;
+	background-color: #eeeeee;
+	color: #1b1b1b;
+	font-family: sans-serif;
+	font-size: 1rem;
+	line-height: 1.6;
+	margin: 0;
+	padding: 0 24%;
 }
 
 header {
-  border-bottom: solid 1px;
-  font-size: 1.3em;
+	border-bottom: solid 1px;
+	font-size: 1.3em;
 }
 
 footer {
-  border-top: solid 1px;
-  font-size: 0.9em;
-  text-align: center;
-  width: 100%;
+	border-top: solid 1px;
+	font-size: 0.9em;
+	text-align: center;
+	width: 100%;
 }
 
 header,
 footer {
-  color: #acacac;
-  font-family: serif;
-  margin: 1em 0;
-  padding: 1em 0;
+	color: #acacac;
+	font-family: serif;
+	margin: 1em 0;
+	padding: 1em 0;
 }
 
 header nav {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
 }
 
 header a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 header a:hover {
-  color: #1b1b1b;
-  opacity: 1;
-  text-decoration: none;
+	color: #1b1b1b;
+	opacity: 1;
+	text-decoration: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: underline;
-  transition: 0.2s ease;
+	color: inherit;
+	text-decoration: underline;
+	transition: 0.2s ease;
 }
 
 a:hover {
-  opacity: 0.8;
-  text-decoration: underline;
+	opacity: 0.8;
+	text-decoration: underline;
 }
 
 a[rel="footnote"],
 a[rel="footnote"]:hover,
 a[rev="footnote"],
 a[rev="footnote"]:hover {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 h1,
@@ -68,23 +68,23 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 1em 0;
+	margin: 1em 0;
 }
 
 p,
 ul,
 ol {
-  margin: 0.5em 0;
+	margin: 0.5em 0;
 }
 
 ul,
 ol {
-  margin-left: 1.5em;
+	margin-left: 1.5em;
 }
 
 img {
-  border-radius: 0.3em;
-  max-width: 100%;
+	border-radius: 0.3em;
+	max-width: 100%;
 }
 
 h1 img,
@@ -94,104 +94,104 @@ h4 img,
 h5 img,
 h6 img,
 p img {
-  border-radius: 0;
-  max-height: 1em;
-  max-width: 1em;
+	border-radius: 0;
+	max-height: 1em;
+	max-width: 1em;
 }
 
 hr {
-  border: solid 0.1em;
-  border-color: #acacac;
-  border-style: dashed;
-  margin: 2em 30%;
+	border: solid 0.1em;
+	border-color: #acacac;
+	border-style: dashed;
+	margin: 2em 30%;
 }
 
 blockquote {
-  border-left: solid 0.15em;
-  border-left-color: #acacac;
-  font-style: italic;
-  margin-left: 0.5em;
-  padding: 0.5em 1em;
+	border-left: solid 0.15em;
+	border-left-color: #acacac;
+	font-style: italic;
+	margin-left: 0.5em;
+	padding: 0.5em 1em;
 }
 
 em,
 figcaption {
-  font-style: italic;
+	font-style: italic;
 }
 
 figcaption {
-  font-size: 0.9em;
+	font-size: 0.9em;
 }
 
 strong {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 code,
 pre,
 table {
-  background-color: #e4e4e4;
-  border-radius: 0.3em;
-  padding: 0.2em;
+	background-color: #e4e4e4;
+	border-radius: 0.3em;
+	padding: 0.2em;
 }
 
 pre {
-  overflow: auto;
-  padding: 1em;
-  white-space: pre;
+	overflow: auto;
+	padding: 1em;
+	white-space: pre;
 }
 
 pre code {
-  background: none;
+	background: none;
 }
 
 table {
-  border-collapse: collapse;
-  width: 100%;
+	border-collapse: collapse;
+	width: 100%;
 }
 
 th,
 td {
-  padding: 0.5em;
-  text-align: center;
+	padding: 0.5em;
+	text-align: center;
 }
 
 sup {
-  font-size: smaller;
+	font-size: smaller;
 }
 
 @media (orientation: portrait) {
-  body {
-    padding: 0 2rem;
-  }
+	body {
+		padding: 0 2rem;
+	}
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    background-color: #111111;
-    color: #e4e4e4;
-  }
+	body {
+		background-color: #111111;
+		color: #e4e4e4;
+	}
 
-  header,
-  footer {
-    color: #535353;
-  }
+	header,
+	footer {
+		color: #535353;
+	}
 
-  header a:hover {
-    color: #e4e4e4;
-  }
+	header a:hover {
+		color: #e4e4e4;
+	}
 
-  hr {
-    border-color: #535353;
-  }
+	hr {
+		border-color: #535353;
+	}
 
-  blockquote {
-    border-left-color: #535353;
-  }
+	blockquote {
+		border-left-color: #535353;
+	}
 
-  code,
-  pre,
-  table {
-    background-color: #1b1b1b;
-  }
+	code,
+	pre,
+	table {
+		background-color: #1b1b1b;
+	}
 }
