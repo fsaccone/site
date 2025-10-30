@@ -38,6 +38,9 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	$(LOWDOWN) -t html $(@:.html=.md) >> $@
 	cat $(FOOTER) >> $@
 
+	cat $@ | tr -d '\t' | tr '\n' ' ' | sed 's/  \+/ /g' \
+	       > $@.tmp && mv -f $@.tmp $@
+
 $(RSS):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
 	printf '<rss version="2.0"' >> $@
