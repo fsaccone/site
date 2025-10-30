@@ -34,12 +34,9 @@ uninstall:
 	done
 
 $(PAGES) $(PAGE404) $(PAGE5XX):
-	cat $(HEADER) > $@
+	cat $(HEADER) | tr -d '\n\t' | sed 's/  \+/ /g' > $@
 	$(LOWDOWN) -t html $(@:.html=.md) >> $@
-	cat $(FOOTER) >> $@
-
-	cat $@ | tr -d '\t' | tr '\n' ' ' | sed 's/  \+/ /g' \
-	       > $@.tmp && mv -f $@.tmp $@
+	cat $(FOOTER) | tr -d '\n\t' | sed 's/  \+/ /g' >> $@
 
 $(RSS):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
