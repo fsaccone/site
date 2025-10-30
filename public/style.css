@@ -87,6 +87,18 @@ img {
   max-width: 100%;
 }
 
+h1 img,
+h2 img,
+h3 img,
+h4 img,
+h5 img,
+h6 img,
+p img {
+  border-radius: 0;
+  max-height: 1em;
+  max-width: 1em;
+}
+
 hr {
   border: solid 0.1em;
   border-color: #acacac;
