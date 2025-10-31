@@ -95,8 +95,8 @@ h5 img,
 h6 img,
 p img {
 	border-radius: 0;
-	max-height: 1em;
-	max-width: 1em;
+	max-height: 0.7em;
+	max-width: 0.7em;
 }
 
 hr {
