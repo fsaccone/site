@@ -23,13 +23,13 @@ clean:
 	rm -f $(PAGES) $(PAGE404) $(PAGE5XX) $(RSS) $(SITEMAP)
 
 install: $(PAGES) $(RSS) $(SITEMAP)
-	for f in $(RSS) $(SITEMAP) $(PAGES) favicon.ico public; do \
+	for f in $(RSS) $(SITEMAP) $(PAGES) favicon.ico public robots.txt; do \
 		mkdir -p $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 		cp -rf $$f $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 	done
 
 uninstall:
-	for f in $(RSS) $(SITEMAP) $(PAGES) favicon.ico public; do \
+	for f in $(RSS) $(SITEMAP) $(PAGES) favicon.ico public robots.txt; do \
 		rm -rf $(DESTDIR)$(PREFIX)/$$f; \
 	done
 
