@@ -14,7 +14,6 @@ RSSTITLE       = Francesco Saccone
 RSSDESCRIPTION = Francesco Saccone's blog.
 RSSDIR         = blog
 
-ICONCOLOR = 000000
 ICONSVG = public/icon.svg
 
 HEADER = header.html
@@ -44,10 +43,9 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	cat $(FOOTER) | tr -d '\n\t' | sed 's/  \+/ /g' >> $@
 
 $(FAVICON):
-	sed 's/<svg/<svg stroke="#$(ICONCOLOR)"/' $(ICONSVG) \
-	| $(MAGICK) -density 256 \
-	            -define icon:auto-resize=256,128,96,64,48,32,16 \
-	            -background transparent - $@
+	$(MAGICK) -density 256 \
+	          -define icon:auto-resize=256,128,96,64,48,32,16 \
+	          -background transparent $(ICONSVG) $@
 
 $(RSS):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
