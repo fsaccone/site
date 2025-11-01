@@ -121,6 +121,10 @@ pre a.d:hover {
 }
 
 @media (prefers-color-scheme: dark) {
+	img[src="logo.png"] {
+		filter: invert(1);
+	}
+
 	body {
 		background-color: #111111;
 		color: #e4e4e4;
