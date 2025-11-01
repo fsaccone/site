@@ -59,7 +59,8 @@ uninstall:
 	done
 
 $(PAGES) $(PAGE404) $(PAGE5XX):
-	cat $(HEADER) | tr -d '\n\t' | sed 's/  \+/ /g' > $@
+	cat $(HEADER) | sed "s/@DESCRIPTION@/$$(cat $(@:.html=.desc))/g" \
+	              | tr -d '\n\t' | sed -e 's/  \+/ /g' > $@
 	$(LOWDOWN) -t html $(@:.html=.md) >> $@
 	cat $(FOOTER) | tr -d '\n\t' | sed 's/  \+/ /g' >> $@
 
