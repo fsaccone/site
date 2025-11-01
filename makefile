@@ -6,6 +6,7 @@ PAGES = index.html \
 PAGE404 = 404.html
 PAGE5XX = 5xx.html
 
+FAVICON = favicon.ico
 RSS     = $(RSSDIR)/rss.xml
 SITEMAP = sitemap.xml
 
@@ -13,24 +14,27 @@ RSSTITLE       = Francesco Saccone
 RSSDESCRIPTION = Francesco Saccone's blog.
 RSSDIR         = blog
 
+ICONCOLOR = 000000
+ICONSVG = public/icon.svg
+
 HEADER = header.html
 FOOTER = footer.html
 
 .PHONY: all clean install uninstall
 
-all: $(PAGES) $(PAGE404) $(PAGE5XX) $(RSS) $(SITEMAP)
+all: $(PAGES) $(PAGE404) $(PAGE5XX) $(FAVICON) $(RSS) $(SITEMAP)
 
 clean:
-	rm -f $(PAGES) $(PAGE404) $(PAGE5XX) $(RSS) $(SITEMAP)
+	rm -f $(PAGES) $(PAGE404) $(PAGE5XX) $(FAVICON) $(RSS) $(SITEMAP)
 
 install: $(PAGES) $(RSS) $(SITEMAP)
-	for f in $(PAGES) $(RSS) $(SITEMAP) favicon.ico public robots.txt; do \
+	for f in $(PAGES) $(FAVICON) $(RSS) $(SITEMAP) public robots.txt; do \
 		mkdir -p $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 		cp -rf $$f $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 	done
 
 uninstall:
-	for f in $(PAGES) $(RSS) $(SITEMAP) favicon.ico public robots.txt; do \
+	for f in $(PAGES) $(FAVICON) $(RSS) $(SITEMAP) public robots.txt; do \
 		rm -rf $(DESTDIR)$(PREFIX)/$$f; \
 	done
 
@@ -38,6 +42,12 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	cat $(HEADER) | tr -d '\n\t' | sed 's/  \+/ /g' > $@
 	$(LOWDOWN) -t html $(@:.html=.md) >> $@
 	cat $(FOOTER) | tr -d '\n\t' | sed 's/  \+/ /g' >> $@
+
+$(FAVICON):
+	sed 's/<svg/<svg stroke="#$(ICONCOLOR)"/' $(ICONSVG) \
+	| $(MAGICK) -density 256 \
+	            -define icon:auto-resize=256,128,96,64,48,32,16 \
+	            -background transparent - $@
 
 $(RSS):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@

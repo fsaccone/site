@@ -1,4 +1,5 @@
 *.html
+*.ico
 *.xml
 !footer.html
 !header.html
