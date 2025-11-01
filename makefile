@@ -63,43 +63,42 @@ $(PAGES) $(PAGE404) $(PAGE5XX):
 	$(LOWDOWN) -t html $(@:.html=.md) >> $@
 	cat $(FOOTER) | tr -d '\n\t' | sed 's/  \+/ /g' >> $@
 
-$(FAVICON):
-	$(MAGICK) -density 256 \
-	          -define icon:auto-resize=256,128,96,64,48,32,16 \
-	          -background transparent $(ICONSVG) $@
+$(FAVICON): $(ICON256) $(ICON128) $(ICON64) $(ICON48) $(ICON32) $(ICON24) \
+            $(ICON16)
+	$(MAGICK) $^ $@
 
 $(ICON4096):
-	$(MAGICK) -size 4096x4096 $(ICONSVG) $@
+	$(INKSCAPE) -w 4096 -h 4096 $(ICONSVG) -o $@
 
 $(ICON2048):
-	$(MAGICK) -size 2048x2048 $(ICONSVG) $@
+	$(INKSCAPE) -w 2048 -h 2048 $(ICONSVG) -o $@
 
 $(ICON1024):
-	$(MAGICK) -size 1024x1024 $(ICONSVG) $@
+	$(INKSCAPE) -w 1024 -h 1024 $(ICONSVG) -o $@
 
 $(ICON512):
-	$(MAGICK) -size 512x512 $(ICONSVG) $@
+	$(INKSCAPE) -w 512 -h 512 $(ICONSVG) -o $@
 
 $(ICON256):
-	$(MAGICK) -size 256x256 $(ICONSVG) $@
+	$(INKSCAPE) -w 256 -h 256 $(ICONSVG) -o $@
 
 $(ICON128):
-	$(MAGICK) -size 128x128 $(ICONSVG) $@
+	$(INKSCAPE) -w 128 -h 128 $(ICONSVG) -o $@
 
 $(ICON64):
-	$(MAGICK) -size 64x64 $(ICONSVG) $@
+	$(INKSCAPE) -w 64 -h 64 $(ICONSVG) -o $@
 
 $(ICON48):
-	$(MAGICK) -size 48x48 $(ICONSVG) $@
+	$(INKSCAPE) -w 48 -h 48 $(ICONSVG) -o $@
 
 $(ICON32):
-	$(MAGICK) -size 32x32 $(ICONSVG) $@
+	$(INKSCAPE) -w 32 -h 32 $(ICONSVG) -o $@
 
 $(ICON24):
-	$(MAGICK) -size 24x24 $(ICONSVG) $@
+	$(INKSCAPE) -w 24 -h 24 $(ICONSVG) -o $@
 
 $(ICON16):
-	$(MAGICK) -size 16x16 $(ICONSVG) $@
+	$(INKSCAPE) -w 16 -h 16 $(ICONSVG) -o $@
 
 $(RSS):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@
