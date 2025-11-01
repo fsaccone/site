@@ -6,9 +6,20 @@ PAGES = index.html \
 PAGE404 = 404.html
 PAGE5XX = 5xx.html
 
-FAVICON = favicon.ico
-RSS     = $(RSSDIR)/rss.xml
-SITEMAP = sitemap.xml
+FAVICON  = favicon.ico
+RSS      = $(RSSDIR)/rss.xml
+SITEMAP  = sitemap.xml
+ICON4096 = public/icon4096.png
+ICON2048 = public/icon2048.png
+ICON1024 = public/icon1024.png
+ICON512  = public/icon512.png
+ICON256  = public/icon256.png
+ICON128  = public/icon128.png
+ICON64   = public/icon64.png
+ICON48   = public/icon48.png
+ICON32   = public/icon32.png
+ICON24   = public/icon24.png
+ICON16   = public/icon16.png
 
 RSSTITLE       = Francesco Saccone
 RSSDESCRIPTION = Francesco Saccone's blog.
@@ -21,19 +32,29 @@ FOOTER = footer.html
 
 .PHONY: all clean install uninstall
 
-all: $(PAGES) $(PAGE404) $(PAGE5XX) $(FAVICON) $(RSS) $(SITEMAP)
+all: $(PAGES) $(PAGE404) $(PAGE5XX) $(FAVICON) $(RSS) $(SITEMAP) $(ICON4096) \
+     $(ICON2048) $(ICON1024) $(ICON512) $(ICON128) $(ICON64) $(ICON48) \
+     $(ICON32) $(ICON24) $(ICON16)
 
 clean:
-	rm -f $(PAGES) $(PAGE404) $(PAGE5XX) $(FAVICON) $(RSS) $(SITEMAP)
+	rm -f $(PAGES) $(PAGE404) $(PAGE5XX) $(FAVICON) $(RSS) $(SITEMAP) \
+	$(ICON4096) $(ICON2048) $(ICON1024) $(ICON512) $(ICON128) $(ICON64) \
+	$(ICON48) $(ICON32) $(ICON24) $(ICON16)
 
 install: $(PAGES) $(RSS) $(SITEMAP)
-	for f in $(PAGES) $(FAVICON) $(RSS) $(SITEMAP) public robots.txt; do \
+	for f in $(PAGES) $(FAVICON) $(RSS) $(SITEMAP) $(ICON4096) \
+	         $(ICON2048) $(ICON1024) $(ICON512) $(ICON128) $(ICON64) \
+	         $(ICON48) $(ICON32) $(ICON24) $(ICON16) public \
+	         robots.txt; do \
 		mkdir -p $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 		cp -rf $$f $(DESTDIR)$(PREFIX)/$$(dirname $$f); \
 	done
 
 uninstall:
-	for f in $(PAGES) $(FAVICON) $(RSS) $(SITEMAP) public robots.txt; do \
+	for f in $(PAGES) $(FAVICON) $(RSS) $(SITEMAP) $(ICON4096) \
+	         $(ICON2048) $(ICON1024) $(ICON512) $(ICON128) $(ICON64) \
+	         $(ICON48) $(ICON32) $(ICON24) $(ICON16) public \
+	         robots.txt; do \
 		rm -rf $(DESTDIR)$(PREFIX)/$$f; \
 	done
 
@@ -46,6 +67,39 @@ $(FAVICON):
 	$(MAGICK) -density 256 \
 	          -define icon:auto-resize=256,128,96,64,48,32,16 \
 	          -background transparent $(ICONSVG) $@
+
+$(ICON4096):
+	$(MAGICK) -size 4096x4096 $(ICONSVG) $@
+
+$(ICON2048):
+	$(MAGICK) -size 2048x2048 $(ICONSVG) $@
+
+$(ICON1024):
+	$(MAGICK) -size 1024x1024 $(ICONSVG) $@
+
+$(ICON512):
+	$(MAGICK) -size 512x512 $(ICONSVG) $@
+
+$(ICON256):
+	$(MAGICK) -size 256x256 $(ICONSVG) $@
+
+$(ICON128):
+	$(MAGICK) -size 128x128 $(ICONSVG) $@
+
+$(ICON64):
+	$(MAGICK) -size 64x64 $(ICONSVG) $@
+
+$(ICON48):
+	$(MAGICK) -size 48x48 $(ICONSVG) $@
+
+$(ICON32):
+	$(MAGICK) -size 32x32 $(ICONSVG) $@
+
+$(ICON24):
+	$(MAGICK) -size 24x24 $(ICONSVG) $@
+
+$(ICON16):
+	$(MAGICK) -size 16x16 $(ICONSVG) $@
 
 $(RSS):
 	printf '<?xml version="1.0" encoding="UTF-8"?>' > $@

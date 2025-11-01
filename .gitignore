@@ -1,5 +1,6 @@
 *.html
 *.ico
 *.xml
+public/icon*.png
 !footer.html
 !header.html
