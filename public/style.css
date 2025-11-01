@@ -101,8 +101,6 @@ p img {
 
 hr {
 	border: solid 0.1em;
-	border-color: #acacac;
-	border-style: dashed;
 	margin: 2em 30%;
 }
 
@@ -179,10 +177,6 @@ sup {
 
 	header a:hover {
 		color: #e4e4e4;
-	}
-
-	hr {
-		border-color: #535353;
 	}
 
 	blockquote {

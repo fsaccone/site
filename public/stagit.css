@@ -87,7 +87,6 @@ td.num {
 
 hr {
 	border: solid 0.1em;
-	border-color: #acacac;
 }
 
 #branches tbody tr:hover td,
@@ -132,10 +131,6 @@ pre a.d:hover {
 
 	.desc {
 		color: #535353;
-	}
-
-	hr {
-		border-color: #535353;
 	}
 
 	#branches tbody tr:hover td,
